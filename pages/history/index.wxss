@@ -1,0 +1,40 @@
+.page_history {
+    height: 100%;
+    background-image: url(https://ilmsf-1257950182.cos.ap-chengdu.myqcloud.com/history_bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.list_item {
+    display: flex;
+    align-items: center;
+    height: 60rpx;
+    /* margin: 20px 0; */
+    background-color: rgb(163, 230, 132);
+    font-size: 28rpx;
+    border-bottom: 1px solid #ccc;
+}
+.list_item:first-child {
+    background-color: darksalmon;
+}
+.list_item_school, .list_item_major,.list_item_time,.list_item_score {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list_item_school {
+    border-right: 1px solid #ccc;
+    flex-basis: 230rpx;
+}
+.list_item_major {
+    border-right: 1px solid #ccc;
+    flex-basis: 230rpx;
+}
+.list_item_time {
+    flex: 1;
+}
+.list_item_score {
+    border-right: 1px solid #ccc;
+    flex-basis: 100rpx;
+}

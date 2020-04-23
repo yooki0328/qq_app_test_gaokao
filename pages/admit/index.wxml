@@ -1,0 +1,7 @@
+<view class="page_admit">
+    <view class="admit_school">{{randomSchool.title}}</view>
+    <open-data type="userAvatarUrl" class="avatar"></open-data>
+    <view class="admit_text admit_user" >亲爱的<open-data type="userNickName" class="nickname"></open-data>：</view>
+    <view class="admit_text">恭喜你，被我校<text class="major">{{randomMajor}}</text>专业录取！请于2020年9月1日凭本通知书来校报道。</view>
+    <view class="today">二〇二〇年二月</view>
+</view>

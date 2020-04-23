@@ -1,0 +1,85 @@
+<wxs module="m1">
+    function getTitle (number) {
+        var numberChar = ['零','一','二', '三', '四', '五', '六', '七', '八', '九', '十'];
+        return numberChar[number];
+    }
+    function getClass (status) {
+        switch (status) {
+            case '0':
+                return 'visited';
+            case '1':
+                return 'correct';
+            case '2':
+                return 'wrong';
+            default:
+                return '';
+        }
+    }
+    function getRemainTime (number) {
+        return Math.round(number / 1000);
+    }
+    function getBackgroundColor(deg) {
+        return deg == 0 ? '#fff' : 'orange';
+    }
+    module.exports.getBackgroundColor = getBackgroundColor;
+    module.exports.getRemainTime = getRemainTime;
+    module.exports.getTitle = getTitle;
+    module.exports.getClass = getClass;
+</wxs>
+<view class="page_index" wx:if="{{ curPage == 'index'}}">
+    <view class="page_index_startbtn" bind:tap="startTest"></view>
+    <view class="page_index_historybtn" bind:tap="gotoHistory"></view>
+    <image src="https://ilmsf-1257950182.cos.ap-chengdu.myqcloud.com/datibg.png" style="width: 0;"/>
+</view>
+<view class="page_question {{wrongMaskShow ? 'wrong-animate' : ''}}" wx:if="{{ curPage == 'question'}}">
+    <!-- 用户头像、分数、倒计时、当前题目x/10 -->
+    <view class="page_question_header">
+        <view class="page_question_header_userinfo">
+            <open-data type="userAvatarUrl" class="avatar"></open-data>
+        </view>
+        <view class="page_question_header_countdown">
+            <view class="page_question_header_countdown_process_yellow_left" style="transform: translate(-50%, -50%) rotate({{deg1}}deg);"></view>
+            <view class="page_question_header_countdown_process_yellow_right" style="transform: translate(-50%, -50%) rotate({{deg2}}deg);background-color:{{m1.getBackgroundColor(deg2)}}"></view>
+            <view class="page_question_header_countdown_number">{{m1.getRemainTime(remainTime)}}</view>
+        </view>
+        <view class="page_question_header_score">{{score}}</view>
+        <view class="page_question_subtitle">（{{curIndex}}/6）{{curQuestion.title}}</view>
+    </view>
+    <!-- 题目 -->
+    <view class="page_question_content">
+        <view class="page_question_anwser_list" animation="{{animationData}}">
+            <block wx:for="{{curQuestion.answers}}" wx:key="{{index}}">
+                <view class="page_question_anwser_list_text {{m1.getClass(item.status)}}" bind:tap="selectAnswer" data-index="{{index}}">{{item.text}}</view>
+            </block>
+        </view>
+    </view>
+    <ad unit-id="425090f0c5371353be8061359cb9e6cc"></ad>
+</view>
+<view class="result_modal_mask" wx:if="{{ resultShow }}">
+    <view class="result_modal">
+        <block wx:if="{{score >= 30}}">
+            <view class="result_modal_success_header"></view>
+            <view class="result_modal_success_cup"></view>
+        </block>
+        <block wx:else>
+            <view class="result_modal_fail_header"></view>
+            <view class="result_modal_fail_cup"></view>
+        </block>
+        <view class="result_modal_body">
+            <view class="result_modal_score">当前关卡: 第<text style="font-weight:bold">{{level}}</text> 关,该关卡成绩为：<text style="font-weight:bold">{{score}}</text> 分<text style="color: red;" wx:if="{{score < 30}}">(大于30分通关)</text></view>
+            <view class="result_modal_score">您的总成绩为：<text style="font-weight:bold">{{allScore}}</text> 分</view>
+        </view>
+        <block wx:if="{{score >= 30 && level < 10}}">
+            <view class="result_modal_footer" bind:tap="testNextLevel">继续挑战下一关</view>
+        </block>
+        <block wx:else>
+            <view wx:if="{{score >= 30 && level == 10}}">您已通关所有关卡，太厉害了！</view>
+            <view class="result_modal_footer" bind:tap="testAgain" wx:else>
+                重新挑战本关卡
+            </view>
+            <view class="result_modal_footer" bind:tap="viewAdmit">领取录取通知</view>
+            <button open-type="share" class="result_modal_footer" bind:tap="inviteFriend">邀请好友测一测</button>
+        </block >
+    </view>
+</view>
+<view class="wrong_mask" wx:if="{{wrongMaskShow}}"></view>

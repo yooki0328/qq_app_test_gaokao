@@ -1,0 +1,16 @@
+<view class="page_history">
+    <view class="list_item" style="margin-bottom: 20px">
+        <view class="list_item_score">分数</view>
+        <view class="list_item_school">大学</view>
+        <view class="list_item_major">专业</view>
+        <view class="list_item_time">日期</view>
+    </view>
+    <block qq:for="{{list}}">
+        <view class="list_item">
+            <view class="list_item_score">{{item.score}}</view>
+            <view class="list_item_school">{{item.school.title}}</view>
+            <view class="list_item_major">{{item.major}}</view>
+            <view class="list_item_time">{{item.time}}</view>
+        </view>
+    </block>
+</view>

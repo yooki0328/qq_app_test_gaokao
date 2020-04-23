@@ -1,0 +1,52 @@
+.page_admit {
+    background-image: url(https://ilmsf-1257950182.cos.ap-chengdu.myqcloud.com/admit.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.major {
+    text-decoration:underline;
+    padding:10px;
+    font-weight: bold;
+}
+.schoolLogo {
+    width: 100rpx;
+    height: 100rpx;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.avatar {
+    width: 142rpx;
+    height: 165rpx;
+    display: block;
+    overflow: hidden;
+    position:absolute;
+    top:33vh;
+    left:41vw;
+}
+.admit_text {
+    font-size: 24rpx;
+    font-size: 30rpx;
+    max-width:63vw;
+    margin:0 auto;
+    word-break: break-all;
+
+}
+.admit_user {
+    margin-bottom: 20rpx;
+    font-size: 32rpx;
+}
+.admit_school {
+    margin-top: 170rpx;
+    margin-bottom: 30vh;
+    text-align: center;
+    color: red;
+    font-size: 60rpx;
+}
+.today {
+    position: absolute;
+    bottom: 30vh;
+    right: 125rpx;
+}

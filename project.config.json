@@ -1,0 +1,54 @@
+{
+	"description": "项目配置文件[都可以]",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.4",
+	"appid": "wxf2130a4cff61a2d6",
+	"projectname": "%E9%AB%98%E8%80%83%E9%80%81%E5%88%86%E9%A2%98%E8%BF%98%E8%AE%B0%E5%BE%97%E5%A4%9A%E5%B0%91",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"qqappid": "1110234114",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "查看记录",
+					"pathName": "pages/history/index",
+					"query": "",
+					"scene": ""
+				}
+			]
+		}
+	}
+}
